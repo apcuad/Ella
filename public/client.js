@@ -5,6 +5,7 @@ function play(id) {
     socket.emit('play', id);
 }
 
+//send out tiltDown message when the 'S' key is pressed 
 $(document).keydown(function(e){
     if (e.keyCode == 83) {
         socket.emit('tiltDown');
@@ -13,6 +14,7 @@ $(document).keydown(function(e){
     }
 });
 
+//send out tiltUp message when the 'W' key is pressed 
 $(document).keydown(function(e){
     if (e.keyCode == 87) {
         socket.emit('tiltUp');
@@ -21,6 +23,7 @@ $(document).keydown(function(e){
     }
 });
 
+//send out panLeft message when the 'A' key is pressed 
 $(document).keydown(function(e){
     if (e.keyCode == 65) {
         socket.emit('panLeft');
@@ -29,6 +32,7 @@ $(document).keydown(function(e){
     }
 });
 
+//send out panRight message when the 'D' key is pressed 
 $(document).keydown(function(e){
     if (e.keyCode == 68) {
         socket.emit('panRight');

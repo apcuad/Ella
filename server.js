@@ -33,8 +33,8 @@ io.on('connect', function(socket) {
     socket.on('play', function(id) {
         console.log('play sound', id);
         //exec(command, callback); play a sound from the sound clips libary using ALSA aplay
-        console.log('aplay public/sound-' + id + '.wav -D hw:1,0');
-        exec('aplay public/sound-' + id + '.wav -D hw:1,0', function(err,stdout,stderr) {
+        console.log('aplay public/sound-' + id + '.wav -D plughw:1,0');
+        exec('aplay public/sound-' + id + '.wav -D plughw:1,0', function(err,stdout,stderr) {
           if (err) {
             console.log('Child process exited with error code', err.code);
             return

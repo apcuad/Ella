@@ -2,6 +2,6 @@
 
 To run this example:
 
-1. clone the repo
-2. upload the `helloYouSketch.ino` you your Arduino
-3. run `server.js /dev/ttyACM0` using node (make sure your Arduino port is correct)
+1. Clone the repo onto your Pi's home folder
+2. Upload the `pan_tilt.ino` to your Arduino
+3. Type `node server.js /dev/ttyAMA0` on terminal while in this folder

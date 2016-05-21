@@ -3,14 +3,15 @@
 Servo panservo;
 Servo tiltservo;
 
-const int maxpan = 220;
+const int maxpan = 180;
 const int minpan = 10;
-const int maxtilt = 130;
-const int mintilt = 45;
+const int maxtilt = 170;
+const int mintilt = 80;
+char input;
 
 int pan = 100;
 int tilt = 100;
-
+int step = 10;
 void setup() { 
 
   panservo.attach(8);  
@@ -18,7 +19,7 @@ void setup() {
   panservo.write(pan);
   tiltservo.write(tilt);
 
-  Serial.begin(115200);
+  Serial.begin(9600);  //this is the deafult rate for node serialport
   Serial.println("ready");
 
 } 
@@ -29,35 +30,19 @@ void loop() {
     input = (char)Serial.read();
 
     if(input == 'a'){
-      if((pan + 5) < maxpan) pan += 5;
+      if((pan + step) < maxpan) pan += step;
     }
 
     if(input == 'd'){
-      if((pan - 5) > minpan) pan -= 5;
+      if((pan - step) > minpan) pan -= step;
     }
 
     if(input == 's'){
-      if((tilt + 5 ) < maxtilt) tilt += 5;
+      if((tilt + step ) < maxtilt) tilt += step;
     }
 
     if(input == 'w'){
-      if((tilt - 5 ) > mintilt) tilt -= 5;
-    }
-
-    if(input == 'p'){
-      for(int i = minpan ; i < maxpan ; i++) {
-        panservo.write(i);
-        delay(35);
-      }
-      for(int i = maxpan ; i > minpan ; i--) {
-        panservo.write(i);
-        delay(35);
-      }
-    }
-
-    if(input == 'o'){ // turn off motors 
-      panservo.detach();
-      tiltservo.detach();
+      if((tilt - step ) > mintilt) tilt -= step;
     }
 
     panservo.write(pan);
@@ -65,3 +50,5 @@ void loop() {
     Serial.println("pan: " + (String)pan + " tilt: " + (String)tilt);
   }
 }
+
+//this code was adapted from an example by brad zdanivsky found on http://verticalchallenge.org/archives/2823 

@@ -14,6 +14,6 @@ To run Ella:
 -----
 Once stuff is setup up, these are the typical hardware steps before running the server:
 1. Turn on power bank
-2. Turn on speaker
+2. Turn on speaker 
 3. Unplug and replug sound card
 -----

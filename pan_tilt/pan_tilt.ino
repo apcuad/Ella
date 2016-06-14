@@ -5,12 +5,12 @@ Servo tiltservo;
 
 const int maxpan = 180;
 const int minpan = 10;
-const int maxtilt = 170;
-const int mintilt = 80;
+const int maxtilt = 200;
+const int mintilt = 120;
 char input;
 
 int pan = 100;
-int tilt = 100;
+int tilt = 200;
 int step = 10;
 void setup() { 
 

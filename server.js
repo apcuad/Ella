@@ -1,9 +1,9 @@
 var express = require('express'); // web server application
-var http = require('http');		  // http basics
-var app = express();			 // instantiate express server
-var server = http.Server(app);		// connects http library to server
-var io = require('socket.io')(server);	// connect websocket library to server
-var serialport = require('serialport');	// serial library
+var http = require('http'); // http basics
+var app = express(); // instantiate express server
+var server = http.Server(app); // connects http library to server
+var io = require('socket.io')(server); // connect websocket library to server
+var serialport = require('serialport'); // serial library
 var serverPort = 8000;
 var child_process = require('child_process');
 var exec = child_process.exec;
